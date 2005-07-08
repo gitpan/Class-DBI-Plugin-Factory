@@ -1,7 +1,8 @@
 package Class::DBI::Plugin::Factory;
 use strict;
+use vars qw/$VERSION/;
 
-our $VERSION = '0.02';
+$VERSION = '0.03';
 
 use Class::Inspector;
 use UNIVERSAL::require;
@@ -150,7 +151,7 @@ This plugin makes CDBI to implement "factory pattern".
 
 =head1 set_factory
 
-call this method in a package which you want to design as "factory pattern".
+call this method in a package where you want to design as "factory pattern".
 and you need to set hashref as a argument of "set_factory".
 follow 2 keys are required.
 
@@ -158,12 +159,12 @@ follow 2 keys are required.
 
 =item type_column
 
-According to a value of the column as "type_column", this module rebless records.
+According to a value of the column set with this key, this module rebless records.
 
 =item types
 
 hashref which defines a relations between type-parameters and subclasses.
-if undefined type-parameter is found, records reblessed to the subclass which defined as '-Base'
+if undefined type-parameter is found, records will be reblessed to the subclass which defined as '-Base'
 
 =head1 SEE ALSO
 
